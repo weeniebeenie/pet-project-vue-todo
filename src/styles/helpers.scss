@@ -1,0 +1,49 @@
+// Colours
+$color-1--1: #f5c156 !default;
+$color-1--2: #cd2a8b !default;
+
+$color-2--1: #0f0c29 !default;
+$color-2--2: #302b63 !default;
+$color-2--3: #24243e !default;
+
+$color-3--1: #f4f4f4 !default;
+$color-3--2: #727272 !default;
+
+$color-white: #ffffff !default;
+$color-black: #000000 !default;
+$color-red: #d64242 !default;
+
+// Set width and height for element
+@mixin size($width, $height: $width) {
+    height: $height;
+    width: $width;
+}
+
+// Set absolute position with settings
+@mixin absolute($top: null, $right: null, $bottom: null, $left: null) {
+    bottom: $bottom;
+    left: $left;
+    position: absolute;
+    right: $right;
+    top: $top;
+}
+
+// Set transition for element with settings
+@mixin trs($prop: all, $duration: 250ms, $easing: ease-in-out, $delay: 0ms) {
+    transition: $prop $duration $easing $delay;
+}
+
+@mixin on-event($self: false) {
+    @if $self {
+        &,
+        &:hover,
+        &:focus {
+            @content;
+        }
+    } @else {
+        &:hover,
+        &:focus {
+            @content;
+        }
+    }
+}
