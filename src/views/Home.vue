@@ -1,6 +1,6 @@
 <template>
     <main class="app-content">
-        <h2>Todo list</h2>
+        <h2>To-Do List</h2>
         <TodoListCreating @add-todo-item="addTodoItem" />
         <form>
             <div class="filter-field" :class="{ floating: isFloating }">

@@ -25,7 +25,7 @@
                     <label for="dark-mode-toggle"></label>
                 </div>
                 <ul class="sidebar__menu">
-                    <li class="sidebar__item -user-info">
+                    <li class="sidebar__item is-user-info">
                         <span class="name">{{ info.name }}</span>
                         <span class="email">{{ info.email }}</span>
                     </li>

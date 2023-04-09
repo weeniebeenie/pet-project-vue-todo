@@ -81,7 +81,7 @@ export default {
             try {
                 const uid = await dispatch('GET_USER_ID')
                 await firebase.database().ref(`/users/${uid}/todos`).child(id).update({ completed })
-                commit('UPDATE_COMPLETED_STATUS', { id, completed })
+                await commit('UPDATE_COMPLETED_STATUS', { id, completed })
             } catch (e) {
                 commit('SET_ERROR', e)
                 throw e

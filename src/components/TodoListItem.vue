@@ -2,12 +2,19 @@
     <li class="todo__item">
         <input
             type="checkbox"
+						:id="todo.id"
             :checked="todo.completed"
             @change="updateTodoStatus"
         >
-        <span class="todo__item-text" :class="{done: todo.completed}">{{ todo.title }}</span>
+				<label
+					class="todo__item-text"
+					:class="{ done: todo.completed }"
+					:for="todo.id"
+				>
+					{{ todo.title }}
+				</label>
         <button
-            class="btn -small"
+            class="btn is-small"
             type="button"
             @click="removeTodoItem"
         >
