@@ -1,5 +1,4 @@
 import firebase from 'firebase/app'
-import TodoListItem from '../components/TodoListItem';
 
 export default {
     state: {
@@ -54,8 +53,9 @@ export default {
         SAVE_NEW_TODO: async ({ dispatch, commit }, data) => {
             try {
                 const uid = await dispatch('GET_USER_ID')
-                await firebase.database().ref(`/users/${uid}/todos`).push(data)
-                commit('ADD_TODO_ITEM', data)
+                const ref = await firebase.database().ref(`/users/${uid}/todos`).push(data)
+                const id = ref.key // получаем id из Firebase
+                commit('ADD_TODO_ITEM', { ...data, id }) // добавляем id в объект данных
             } catch (e) {
                 commit('SET_ERROR', e)
                 throw e
